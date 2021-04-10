@@ -94,17 +94,15 @@ std::vector<SquareMatrix> SquareMatrix::AvailableMoves() const {
                     }
                 }
                 if (new_m != *this) {
-                    std::cout << new_m;
                     available.push_back(new_m);
                 }
                 new_m = *this;
                 for (int l = i; l < i + k; ++l) {
                     for (int m = j; m < j + k; ++m) {
-                        new_m(l, m) = (*this)(j + k - m  + i - 1, k + j - l + i - 1);
+                        new_m(l, m) = (*this)(k - 1 - m + j, k - 1 - l + i);
                     }
                 }
                 if (new_m != *this) {
-                    std::cout << new_m;
                     available.push_back(new_m);
                 }
             }
